@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Create auth
         autentication = SettingsFirebase.getFirebaseAuth();
-        // VerifyLogin
+        // VerifyLogin;;
         verifyLogin();
 
         buttonSignup.setOnClickListener {
