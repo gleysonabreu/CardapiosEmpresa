@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Cardatrônico - Empresa</string>
+    <string name="bemvindo">Bem-vindo ao painel de controle do Cardatrônico</string>
+    <string name="email">Digite seu e-mail</string>
+    <string name="password">Digite sua senha</string>
+    <string name="login">Entrar</string>
+    <string name="singup">Cadastre-se</string>
+    <string name="empresa">Digite nome da sua empresa</string>
+    <string name="messageLoginNeedData">Preencha todos os dados!</string>
+    <string name="messageSignupNeddData">Preencha todos os dados!</string>
+    <string name="errorEmailSignup">Digite uma senha mais forte.</string>
+    <string name="errorEmailSignupInValid">Por favor, digite um email válido.</string>
+    <string name="errorAcountCreated">Esta conta já foi cadastrada.</string>
+    <string name="accountCreated">Cadastro realizado com sucesso!!</string>
+    <string name="loginSuccessful">Login realizado com sucesso!!</string>
+    <string name="telefone">Digite o seu telefone de contato da empresa</string>
+    <string name="tipoCozinha">Digite o tipo de cozinha do seu restaurante</string>
+    <string name="estado">Digite o estado do seu restaurante</string>
+    <string name="cidade">Digite a cidade do seu restaurante</string>
+    <string name="bairro">Digite o bairro do seu restaurante</string>
+    <string name="complemento">Digite o complemento do seu local do restaurante</string>
+    <string name="cep">Digite o cep do seu restaurante</string>
+
+
+</resources>
