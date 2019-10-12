@@ -30,8 +30,10 @@
 
         <EditText
             android:id="@+id/editTextCidade"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -47,8 +49,10 @@
 
         <EditText
             android:id="@+id/editTextNomeEmpresa"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -64,8 +68,10 @@
 
         <EditText
             android:id="@+id/editTextTelefoneEmpresa"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -81,8 +87,10 @@
 
         <EditText
             android:id="@+id/editTextTipoCozinha"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -98,8 +106,10 @@
 
         <EditText
             android:id="@+id/editTextEstado"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -115,8 +125,10 @@
 
         <EditText
             android:id="@+id/editTextComplemento"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -132,8 +144,10 @@
 
         <EditText
             android:id="@+id/editTextCep"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -149,8 +163,10 @@
 
         <EditText
             android:id="@+id/editTextBairro"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -165,44 +181,49 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/sfpdb"
-            android:text="@string/infoUser"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextEmailSignup"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.177"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTelefoneEmpresa"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="24dp"
             android:fontFamily="@font/sfpdb"
+            android:gravity="left"
             android:text="@string/infoCompany"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textColor="@android:color/black"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextNomeEmpresa"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.219"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include"
             app:layout_constraintVertical_chainStyle="packed" />
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/sfpdb"
+            android:text="@string/infoUser"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextEmailSignup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTelefoneEmpresa"
+            app:layout_constraintVertical_chainStyle="packed" />
+
         <EditText
             android:id="@+id/editTextPasswordSignup"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
@@ -218,8 +239,10 @@
 
         <Button
             android:id="@+id/buttonSignup"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:backgroundTint="@color/colorSplash"
@@ -237,8 +260,10 @@
 
         <EditText
             android:id="@+id/editTextEmailSignup"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
