@@ -20,6 +20,7 @@
     <string name="bairro">Digite o bairro do seu restaurante</string>
     <string name="complemento">Digite o complemento do seu local do restaurante</string>
     <string name="cep">Digite o cep do seu restaurante</string>
-
+    <string name="infoCompany">Informações da empresa</string>
+    <string name="infoUser">Informações do usuário</string>
 
 </resources>

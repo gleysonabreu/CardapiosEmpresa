@@ -21,7 +21,7 @@ class SingupActivity : AppCompatActivity() {
         setContentView(R.layout.activity_singup)
 
         autentication = SettingsFirebase.getFirebaseAuth();
-        toolbar.title = "";
+        toolbar.title = "Cadastre-se";
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
 
