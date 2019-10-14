@@ -22,8 +22,13 @@
     <string name="cep">Digite o cep do seu restaurante</string>
     <string name="infoCompany">Informações da empresa</string>
     <string name="infoUser">Informações do usuário</string>
+    <string name="controlPanel">Painel de controle</string>
     <string name="addCardapio">Cardápio</string>
     <string name="navigationPerson">Perfil</string>
     <string name="navigationSettings">Configurações</string>
+    <string name="navigationHome">Início</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

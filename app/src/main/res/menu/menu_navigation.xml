@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <item
-        android:id="@+id/settings"
-        android:title="@string/navigationSettings"
-        android:icon="@drawable/ic_settings_black"
+        android:id="@+id/homeFragment"
+        android:title="@string/navigationHome"
+        android:icon="@drawable/ic_home_black"
         />
 
     <item
@@ -16,6 +17,11 @@
         android:id="@+id/profile"
         android:title="@string/navigationPerson"
         android:icon="@drawable/ic_person_black"
+        />
+    <item
+        android:id="@+id/settings"
+        android:title="@string/navigationSettings"
+        android:icon="@drawable/ic_settings_black"
         />
 
 </menu>
