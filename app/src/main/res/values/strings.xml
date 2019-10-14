@@ -27,6 +27,14 @@
     <string name="navigationPerson">Perfil</string>
     <string name="navigationSettings">Configurações</string>
     <string name="navigationHome">Início</string>
+    <string name="cadastrarItemCardapio">Adicionar produtos ao cardápio</string>
+    <string name="addCategory">Adicionar categoria</string>
+    <string name="nameProduct">Nome do produto</string>
+    <string name="priceProduct">Preço do produto</string>
+    <string name="descriptionProduct">Descrição do produto</string>
+    <string name="selectimage">Selecionar imagem</string>
+    <string name="cadastrarProduto">Cadastrar produto</string>
+    <string name="warningCategory">**Selecione apenas uma categoria de produto, caso não tenha a desejada clique no botão abaixo.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         //Settings toolbar
         toolbar.setTitle(R.string.controlPanel);
         setSupportActionBar(toolbar)
+
     }
 
 
@@ -91,7 +92,6 @@ class MainActivity : AppCompatActivity() {
 
         var transaction: FragmentTransaction = supportFragmentManager.beginTransaction();
         transaction.replace(R.id.container, fragment);
-        transaction.addToBackStack(null);
         transaction.commit();
 
     }
