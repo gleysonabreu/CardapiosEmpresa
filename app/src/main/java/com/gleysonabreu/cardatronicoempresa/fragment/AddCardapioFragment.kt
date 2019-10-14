@@ -1,6 +1,7 @@
 package com.gleysonabreu.cardatronicoempresa.fragment
 
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
@@ -11,8 +12,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import com.gleysonabreu.cardatronicoempresa.R
+import com.gleysonabreu.cardatronicoempresa.activity.CategoryActivity
+import com.gleysonabreu.cardatronicoempresa.model.Category
 import com.google.android.material.chip.Chip
+import kotlinx.android.synthetic.main.fragment_add_cardapio.*
 import kotlinx.android.synthetic.main.fragment_add_cardapio.view.*
+import kotlinx.android.synthetic.main.fragment_add_cardapio.view.buttonOpenCategory
 
 /**
  * A simple [Fragment] subclass.
@@ -25,6 +30,14 @@ class AddCardapioFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var viewOfLayout = inflater.inflate(R.layout.fragment_add_cardapio, container, false)
+
+        //Open Add Category
+        viewOfLayout.buttonOpenCategory.setOnClickListener {
+
+            var i: Intent = Intent(activity, CategoryActivity::class.java);
+            startActivity(i)
+
+        }
 
         viewOfLayout.chip_group.isSingleSelection = true;
         val chip: Chip = Chip(activity);

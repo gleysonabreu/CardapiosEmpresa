@@ -34,7 +34,10 @@
     <string name="descriptionProduct">Descrição do produto</string>
     <string name="selectimage">Selecionar imagem</string>
     <string name="cadastrarProduto">Cadastrar produto</string>
+    <string name="disccount">Digite o percentual de desconto</string>
     <string name="warningCategory">**Selecione apenas uma categoria de produto, caso não tenha a desejada clique no botão abaixo.</string>
+    <string name="nameCategory">Nome da categoria</string>
+    <string name="cadastrarCategoria">Cadastrar categoria</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

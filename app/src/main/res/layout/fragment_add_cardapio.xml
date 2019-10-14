@@ -20,7 +20,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/buttonOpenCategory"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSelectImage"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
@@ -87,7 +87,7 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <android.widget.Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonOpenCategory"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="30dp"
@@ -98,7 +98,7 @@
             android:stateListAnimator="@null"
             android:text="@string/addCategory"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@+id/editText"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNameProduct"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +106,7 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/editTextNameProduct"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="30dp"
@@ -117,15 +117,15 @@
             android:hint="@string/nameProduct"
             android:inputType="textPersonName"
             android:padding="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/editText2"
+            app:layout_constraintBottom_toTopOf="@+id/editTextPriceProduct"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/buttonOpenCategory"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/editTextPriceProduct"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="30dp"
@@ -136,34 +136,34 @@
             android:hint="@string/priceProduct"
             android:inputType="number|numberDecimal"
             android:padding="12dp"
-            app:layout_constraintBottom_toTopOf="@+id/editText3"
+            app:layout_constraintBottom_toTopOf="@+id/editTextDescriptionProduct"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNameProduct"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/editTextDescriptionProduct"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="65dp"
             android:background="@drawable/shape_arrounded"
             android:ems="10"
             android:hint="@string/descriptionProduct"
             android:inputType="textPersonName"
             android:padding="12dp"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSelectImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPriceProduct"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <android.widget.Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonSelectImage"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="30dp"
@@ -178,8 +178,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescriptionProduct"
             app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/editTextDisccountProduct"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/disccount"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSelectImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescriptionProduct" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
