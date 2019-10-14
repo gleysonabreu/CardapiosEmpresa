@@ -9,6 +9,7 @@ import android.view.MenuItem
 import com.gleysonabreu.cardatronicoempresa.R
 import com.gleysonabreu.cardatronicoempresa.helper.SettingsFirebase
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Settings navigation bottom
+        bottomNavigationView.itemTextAppearanceActive = R.color.colorAccent;
 
         //Settings FirebaseAuth
         autentication = SettingsFirebase.getFirebaseAuth();

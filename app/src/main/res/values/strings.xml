@@ -22,5 +22,8 @@
     <string name="cep">Digite o cep do seu restaurante</string>
     <string name="infoCompany">Informações da empresa</string>
     <string name="infoUser">Informações do usuário</string>
+    <string name="addCardapio">Cardápio</string>
+    <string name="navigationPerson">Perfil</string>
+    <string name="navigationSettings">Configurações</string>
 
 </resources>
