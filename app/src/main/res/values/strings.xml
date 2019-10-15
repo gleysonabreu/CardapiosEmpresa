@@ -32,7 +32,8 @@
     <string name="nameProduct">Nome do produto</string>
     <string name="priceProduct">Preço do produto</string>
     <string name="descriptionProduct">Descrição do produto</string>
-    <string name="selectimage">Selecionar imagem</string>
+    <string name="selectimage">Abrir galeria</string>
+    <string name="openCamera">Abrir camêra</string>
     <string name="cadastrarProduto">Cadastrar produto</string>
     <string name="disccount">Digite o percentual de desconto</string>
     <string name="warningCategory">**Selecione apenas uma categoria de produto, caso não tenha a desejada clique no botão abaixo.</string>
