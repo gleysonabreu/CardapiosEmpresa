@@ -31,7 +31,9 @@ import kotlinx.android.synthetic.main.fragment_add_cardapio.view.buttonOpenCateg
 class AddCardapioFragment : Fragment() {
 
     private lateinit var referenceDatabase: DatabaseReference;
+    private lateinit var categorys: DatabaseReference;
     private lateinit var viewOfLayout: View;
+    private lateinit var eventListener: ValueEventListener;
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,9 +53,9 @@ class AddCardapioFragment : Fragment() {
 
             //Settings firebase
             referenceDatabase = SettingsFirebase.getFirebase();
-            var categorys = referenceDatabase.child("category");
+            categorys = referenceDatabase.child("category");
 
-            categorys.addValueEventListener(
+            eventListener = categorys.addValueEventListener(
                 object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
                         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -110,6 +112,11 @@ class AddCardapioFragment : Fragment() {
             return AddCardapioFragment();
         }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        categorys.removeEventListener(eventListener);
+        Log.e("ONDESTROY", "Destroiu");
+    }
 
 
 }
