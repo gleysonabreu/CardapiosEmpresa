@@ -10,8 +10,11 @@
 
     <ImageView
         android:id="@+id/imageProduct"
-        android:layout_width="146dp"
-        android:layout_height="97dp"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:layout_weight="1"
+        android:maxWidth="146dp"
+        android:maxHeight="97dp"
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
 
@@ -49,8 +52,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:gravity="center|right"
         android:orientation="vertical">
 
