@@ -60,7 +60,10 @@ class AddCardapioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        activity?.theme?.applyStyle(R.style.AppTheme2, true);
         viewOfLayout = inflater.inflate(R.layout.fragment_add_cardapio, container, false)
+
 
         // Valid permissions
         activity?.let { Permissions.validarPermissoes(permissions, it, 1) };

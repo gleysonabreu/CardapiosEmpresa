@@ -1,8 +1,10 @@
 package com.gleysonabreu.cardatronicoempresa.adapter
 
-import android.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.provider.Settings
 import android.view.ContextThemeWrapper
@@ -41,7 +43,6 @@ class AdapterCardapio (private val cardapio: ArrayList<Cardapio>, private val co
         val descricaoProduto = itemView.textDescription;
         val fotoProduto = itemView.imageProduct;
         val precoProduto = itemView.textPrice;
-
         var builder: AlertDialog.Builder = AlertDialog.Builder(ContextThemeWrapper(itemView.context, R.style.AlertDialogCustom));
 
 
@@ -69,7 +70,9 @@ class AdapterCardapio (private val cardapio: ArrayList<Cardapio>, private val co
                     deleteCardapio(cardapio.idItemCardapio)
                 });
                 builder.setNegativeButton("Não", null);
-                builder.show();
+                val alertDialog: AlertDialog = builder.create();
+                alertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+                alertDialog.show();
             }
 
         }
