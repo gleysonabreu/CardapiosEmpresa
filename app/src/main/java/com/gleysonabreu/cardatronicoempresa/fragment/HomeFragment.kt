@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
         cardapioRef = firebaseRef.child("cardapio");
 
         // Settings Adapter
-        viewOfLayout.recyclerMenuItems.adapter = activity?.let { AdapterCardapio(listMenu, it) }
+        viewOfLayout.recyclerMenuItems.adapter = AdapterCardapio(listMenu, activity!!)
         viewOfLayout.recyclerMenuItems.layoutManager = linearLayoutManager;
 
 
@@ -76,7 +76,15 @@ class HomeFragment : Fragment() {
             }
 
             override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+                var cardapioChanged = p0.getValue(Cardapio::class.java);
+                var index = keyList.indexOf(p0.key);
+
+                if (cardapioChanged != null) {
+                    listMenu.set(index, cardapioChanged);
+                    viewOfLayout.recyclerMenuItems.adapter?.notifyDataSetChanged();
+                };
+
             }
 
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {

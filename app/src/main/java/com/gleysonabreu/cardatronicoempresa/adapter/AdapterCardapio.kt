@@ -3,6 +3,7 @@ package com.gleysonabreu.cardatronicoempresa.adapter
 import androidx.appcompat.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -12,9 +13,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.gleysonabreu.cardatronicoempresa.R
+import com.gleysonabreu.cardatronicoempresa.activity.EditMenuActivity
 import com.gleysonabreu.cardatronicoempresa.helper.SettingsFirebase
 import com.gleysonabreu.cardatronicoempresa.model.Cardapio
 import com.google.firebase.database.DatabaseReference
@@ -34,7 +37,7 @@ class AdapterCardapio (private val cardapio: ArrayList<Cardapio>, private val co
     }
 
     override fun onBindViewHolder(holder: CardapioViewHolder, position: Int) {
-        holder.bindItems(cardapio[position]);
+        holder.bindItems(cardapio[position], context);
     }
 
 
@@ -45,9 +48,7 @@ class AdapterCardapio (private val cardapio: ArrayList<Cardapio>, private val co
         val precoProduto = itemView.textPrice;
         var builder: AlertDialog.Builder = AlertDialog.Builder(ContextThemeWrapper(itemView.context, R.style.AlertDialogCustom));
 
-
-        fun bindItems(cardapio: Cardapio){
-
+        fun bindItems(cardapio: Cardapio, context: Context){
             nomeProduto.text = cardapio.nameitem;
             descricaoProduto.text = cardapio.descriptionItem;
             precoProduto.text = "R$ " + cardapio.priceitem;
@@ -59,7 +60,10 @@ class AdapterCardapio (private val cardapio: ArrayList<Cardapio>, private val co
             }
 
             itemView.imageButtonEdit.setOnClickListener {
-                Toast.makeText(itemView.context, "Você está querendo editar: "+nomeProduto.text.toString(), Toast.LENGTH_SHORT).show();
+
+                var i: Intent = Intent(context, EditMenuActivity::class.java);
+                i.putExtra("dadosEditar", cardapio);
+                context.startActivity(i);
             }
 
             itemView.imageButtonDelete.setOnClickListener {

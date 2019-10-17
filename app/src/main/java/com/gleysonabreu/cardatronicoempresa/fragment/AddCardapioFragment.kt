@@ -17,6 +17,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.NonNull
+import androidx.appcompat.app.AlertDialog
 
 import com.gleysonabreu.cardatronicoempresa.R
 import com.gleysonabreu.cardatronicoempresa.activity.CategoryActivity
@@ -31,6 +32,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.OnProgressListener
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.fragment_add_cardapio.*
@@ -232,7 +234,7 @@ class AddCardapioFragment : Fragment() {
 
                 }
 
-            }).addOnProgressListener {  }
+            })
 
         }else{
             Toast.makeText(activity, "Preencha todos os dados.", Toast.LENGTH_LONG).show();

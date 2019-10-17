@@ -27,6 +27,14 @@ class Cardapio : Serializable{
             return true;
     }
 
+    fun update() : Boolean{
+        var firebaseRef = SettingsFirebase.getFirebase();
+        var cardapioRef = firebaseRef.child("cardapio")
+            .child(idItemCardapio);
+        cardapioRef.setValue(this);
+        return true;
+    }
+
 
     init{
 
