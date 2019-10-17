@@ -39,6 +39,7 @@
     <string name="warningCategory">**Selecione apenas uma categoria de produto, caso não tenha a desejada clique no botão abaixo.</string>
     <string name="nameCategory">Nome da categoria</string>
     <string name="cadastrarCategoria">Cadastrar categoria</string>
+    <string name="updateText">Atualizar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

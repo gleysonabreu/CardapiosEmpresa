@@ -1,14 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ProfileFragment">
+    android:fillViewport="true"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@android:color/white"
+        tools:context=".fragment.ProfileFragment">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/imageCompany"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic[1]" />
+
+        <ImageButton
+            android:id="@+id/imageButtonOpenCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:padding="10dp"
+            android:src="@drawable/ic_camera"
+            app:layout_constraintBottom_toBottomOf="@+id/imageCompany"
+            app:layout_constraintStart_toStartOf="@+id/imageCompany" />
+
+        <ImageButton
+            android:id="@+id/imageButtonOpenGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_arrounded"
+            android:padding="10dp"
+            android:src="@drawable/ic_gallery"
+            app:layout_constraintBottom_toBottomOf="@+id/imageCompany"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.171"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/sfpds"
+            android:text="@string/infoCompany"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNameCompanyEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageCompany" />
+
+        <EditText
+            android:id="@+id/editTextNameCompanyEdit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/empresa"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTypeKitchenEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <EditText
+            android:id="@+id/editTextTypeKitchenEdit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/tipoCozinha"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextZipCodeEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNameCompanyEdit" />
+
+        <EditText
+            android:id="@+id/editTextZipCodeEdit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/cep"
+            android:inputType="number"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextStateEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTypeKitchenEdit" />
+
+        <EditText
+            android:id="@+id/editTextStateEdit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/estado"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextCityEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextZipCodeEdit" />
+
+        <EditText
+            android:id="@+id/editTextCityEdit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/cidade"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNeighborhoodEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextStateEdit" />
+
+        <EditText
+            android:id="@+id/editTextNeighborhoodEdit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/bairro"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextComplementEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCityEdit" />
+
+        <EditText
+            android:id="@+id/editTextComplementEdit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/complemento"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextPhoneEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNeighborhoodEdit" />
+
+        <EditText
+            android:id="@+id/editTextPhoneEdit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_arrounded"
+            android:ems="10"
+            android:hint="@string/telefone"
+            android:inputType="phone"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonUpdateCompany"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextComplementEdit" />
+
+        <Button
+            android:id="@+id/buttonUpdateCompany"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/shape_arrounded"
+            android:backgroundTint="@color/colorSplash"
+            android:text="@string/updateText"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPhoneEdit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

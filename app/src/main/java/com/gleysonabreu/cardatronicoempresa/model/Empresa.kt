@@ -18,12 +18,23 @@ class Empresa : Serializable {
     var cep: String = "";
     @get:Exclude var password: String = "";
     var email: String = ""
+    var photoLink: String = "";
 
     fun save(){
 
         var firebaseRef: DatabaseReference = SettingsFirebase.getFirebase();
         var empresas: DatabaseReference = firebaseRef.child("empresas").child( id );
         empresas.setValue(this);
+
+    }
+
+    fun update() : Boolean{
+
+        var firebaseRef: DatabaseReference = SettingsFirebase.getFirebase();
+        var empresas: DatabaseReference = firebaseRef.child("empresas").child( id );
+        empresas.setValue(this);
+
+        return true;
 
     }
 

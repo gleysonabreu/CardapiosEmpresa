@@ -68,11 +68,9 @@ class HomeFragment : Fragment() {
 
         childEvent = cardapioRef.addChildEventListener(object: ChildEventListener{
             override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onChildChanged(p0: DataSnapshot, p1: String?) {
