@@ -5,4 +5,5 @@
     <color name="colorAccent">@color/colorSplash</color>
     <color name="colorSplash">#9146ff</color>
     <string name="colorWhite">#ffffff</string>
+    <string name="colorDarkDialog">#C6000000</string>
 </resources>

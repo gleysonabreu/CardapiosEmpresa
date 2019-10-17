@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -53,9 +54,9 @@ class AddCardapioFragment : Fragment() {
     private lateinit var eventListener: ValueEventListener;
     private val SELECT_CAMERA = 100;
     private val SELECT_GALLERY = 200;
-    private val permissions = arrayOf<String>(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+    private val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
     private var bitmap: Bitmap? = null;
-    private var uri: String = "";
+    private lateinit var builder: AlertDialog.Builder;
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,9 +67,14 @@ class AddCardapioFragment : Fragment() {
         activity?.theme?.applyStyle(R.style.AppTheme2, true);
         viewOfLayout = inflater.inflate(R.layout.fragment_add_cardapio, container, false)
 
+        // Dialog loading
+        builder = activity?.let { AlertDialog.Builder(it) }!!;
+        builder.setView(R.layout.dialog_loading);
+        builder.setCancelable(false);
 
         // Valid permissions
-        activity?.let { Permissions.validarPermissoes(permissions, it, 1) };
+        //activity?.let { Permissions.validarPermissoes(permissions, it, 1) };
+        Permissions.validarPermissoes(permissions, activity!!, 1);
 
         //Open Add Category
         viewOfLayout.buttonOpenCategory.setOnClickListener {
@@ -169,6 +175,11 @@ class AddCardapioFragment : Fragment() {
 
     private fun sendCardapio(){
 
+        var dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
         var nameItem = editTextNameProduct.text.toString();
         var priceItem = editTextPriceProduct.text.toString();
         var descriptionProduct = editTextDescriptionProduct.text.toString();
@@ -193,6 +204,7 @@ class AddCardapioFragment : Fragment() {
 
             uploadTesk.addOnFailureListener(object: OnFailureListener{
                 override fun onFailure(p0: Exception) {
+                    dialog.dismiss();
                     Toast.makeText(activity, "Error ao enviar imagem", Toast.LENGTH_LONG).show();
                 }
 
@@ -224,11 +236,13 @@ class AddCardapioFragment : Fragment() {
                                 editTextDescriptionProduct.setText("");
                                 editTextDisccountProduct.setText("");
                                 bitmap = null;
+                                dialog.dismiss();
                             }
 
                         } else {
                             // Handle failures
                             // ...
+                            dialog.dismiss();
                         }
                     }
 
@@ -237,6 +251,7 @@ class AddCardapioFragment : Fragment() {
             })
 
         }else{
+            dialog.dismiss();
             Toast.makeText(activity, "Preencha todos os dados.", Toast.LENGTH_LONG).show();
         }
 
