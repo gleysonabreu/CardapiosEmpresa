@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gleysonabreu.cardatronicoempresa.R
 import com.gleysonabreu.cardatronicoempresa.adapter.AdapterCardapio
 import com.gleysonabreu.cardatronicoempresa.helper.SettingsFirebase
+import com.gleysonabreu.cardatronicoempresa.helper.SwipeRevealLayout
 import com.gleysonabreu.cardatronicoempresa.model.Cardapio
 import com.google.android.material.chip.Chip
 import com.google.firebase.database.*
