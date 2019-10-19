@@ -1,8 +1,10 @@
 package com.gleysonabreu.cardatronicoempresa.fragment
 
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -16,9 +18,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 
 import com.gleysonabreu.cardatronicoempresa.R
+import com.gleysonabreu.cardatronicoempresa.helper.Permission
 import com.gleysonabreu.cardatronicoempresa.helper.SettingsFirebase
 import com.gleysonabreu.cardatronicoempresa.model.Empresa
 import com.google.android.gms.tasks.Continuation
@@ -51,6 +55,7 @@ class ProfileFragment : Fragment() {
     private val SELECT_CAMERA = 100;
     private lateinit var builder: AlertDialog.Builder;
     private val SELECT_GALLERY = 200;
+    private val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +64,8 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
 
         viewOf = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
         // Dialog loading
         builder = activity?.let { AlertDialog.Builder(it) }!!;
         builder.setView(R.layout.dialog_loading);
@@ -103,22 +110,35 @@ class ProfileFragment : Fragment() {
         //SETTINGS buttons open gallary and camera
         viewOf.imageButtonOpenCamera.setOnClickListener {
 
-            var i: Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if( i.resolveActivity( activity?.packageManager ) != null ){
+            if(  ContextCompat.checkSelfPermission(activity!!, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ){
+                Toast.makeText(activity, "O aplicativo precisa de permissão para acessar sua câmera", Toast.LENGTH_LONG).show();
+                permissions();
+            }else {
 
-                startActivityForResult(i, SELECT_CAMERA);
+                var i: Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (i.resolveActivity(activity?.packageManager) != null) {
 
+                    startActivityForResult(i, SELECT_CAMERA);
+
+                }
             }
 
         }
 
         viewOf.imageButtonOpenGallery.setOnClickListener {
 
-            var i: Intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            if( i.resolveActivity( activity?.packageManager ) != null ){
+            if(ContextCompat.checkSelfPermission(activity!!, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(activity, "O aplicativo precisa de permissão para acessar sua galeria de fotos", Toast.LENGTH_LONG).show();
+                permissions();
+            }else {
 
-                startActivityForResult(i, SELECT_GALLERY);
+                var i: Intent =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                if (i.resolveActivity(activity?.packageManager) != null) {
 
+                    startActivityForResult(i, SELECT_GALLERY);
+
+                }
             }
 
         }
@@ -238,6 +258,10 @@ class ProfileFragment : Fragment() {
 
         }
 
+    }
+
+    private fun permissions(){
+        Permission.validPermissions(permissions, activity!!, 1);
     }
 
 

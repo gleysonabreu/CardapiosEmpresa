@@ -1,11 +1,13 @@
 package com.gleysonabreu.cardatronicoempresa.activity
 
+import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -22,6 +24,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.gleysonabreu.cardatronicoempresa.R
+import com.gleysonabreu.cardatronicoempresa.helper.Permission
 import com.gleysonabreu.cardatronicoempresa.helper.SettingsFirebase
 import com.gleysonabreu.cardatronicoempresa.model.Cardapio
 import com.google.android.gms.tasks.Continuation
@@ -44,6 +47,7 @@ class EditMenuActivity : AppCompatActivity() {
     private val SELECT_GALLERY = 200;
     private lateinit var bundle:Cardapio;
     private lateinit var builder: AlertDialog.Builder;
+    private val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +56,10 @@ class EditMenuActivity : AppCompatActivity() {
         toolbar.setTitle("Edite");
         setSupportActionBar(toolbar);
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
+
+        // Permissions
+        permissions();
+
         bundle = intent.getSerializableExtra("dadosEditar") as Cardapio;
         builder = AlertDialog.Builder(this);
         builder.setView(R.layout.dialog_loading);
@@ -90,16 +98,30 @@ class EditMenuActivity : AppCompatActivity() {
             }
 
             buttonOpenCamera.setOnClickListener {
-                var i: Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (i.resolveActivity(this@EditMenuActivity.packageManager) != null) {
-                    startActivityForResult(i, SELECT_CAMERA);
+
+                if(  ContextCompat.checkSelfPermission(this@EditMenuActivity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ){
+                    Toast.makeText(this@EditMenuActivity, "O aplicativo precisa de permissão para acessar sua câmera", Toast.LENGTH_LONG).show();
+                    permissions();
+                }else {
+
+                    var i: Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    if (i.resolveActivity(this@EditMenuActivity.packageManager) != null) {
+                        startActivityForResult(i, SELECT_CAMERA);
+                    }
                 }
             }
 
             buttonOpenGallery.setOnClickListener {
-                var i: Intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                if( i.resolveActivity( this@EditMenuActivity.packageManager ) != null ){
-                    startActivityForResult(i, SELECT_GALLERY);
+
+                if(ContextCompat.checkSelfPermission(this@EditMenuActivity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(this@EditMenuActivity, "O aplicativo precisa de permissão para acessar sua galeria de fotos", Toast.LENGTH_LONG).show();
+                    permissions();
+                }else {
+                    var i: Intent =
+                        Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    if (i.resolveActivity(this@EditMenuActivity.packageManager) != null) {
+                        startActivityForResult(i, SELECT_GALLERY);
+                    }
                 }
             }
 
@@ -187,6 +209,10 @@ class EditMenuActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun permissions(){
+        Permission.validPermissions(permissions, this@EditMenuActivity, 1);
     }
 
 

@@ -4,7 +4,7 @@ package com.gleysonabreu.cardatronicoempresa.fragment
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.res.ColorStateList
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -17,13 +17,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 
 import com.gleysonabreu.cardatronicoempresa.R
 import com.gleysonabreu.cardatronicoempresa.activity.CategoryActivity
 import com.gleysonabreu.cardatronicoempresa.helper.Base64Custom
-import com.gleysonabreu.cardatronicoempresa.helper.Permissions
+import com.gleysonabreu.cardatronicoempresa.helper.Permission
 import com.gleysonabreu.cardatronicoempresa.helper.SettingsFirebase
 import com.gleysonabreu.cardatronicoempresa.model.Cardapio
 import com.gleysonabreu.cardatronicoempresa.model.Category
@@ -33,7 +33,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.OnProgressListener
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.fragment_add_cardapio.*
@@ -73,8 +72,7 @@ class AddCardapioFragment : Fragment() {
         builder.setCancelable(false);
 
         // Valid permissions
-        //activity?.let { Permissions.validarPermissoes(permissions, it, 1) };
-        Permissions.validarPermissoes(permissions, activity!!, 1);
+        permissions();
 
         //Open Add Category
         viewOfLayout.buttonOpenCategory.setOnClickListener {
@@ -125,22 +123,35 @@ class AddCardapioFragment : Fragment() {
         //SETTINGS buttons open gallary and camera
         viewOfLayout.buttonOpenCamera.setOnClickListener {
 
-            var i: Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if( i.resolveActivity( activity?.packageManager ) != null ){
+            if(  ContextCompat.checkSelfPermission(activity!!, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ){
+                Toast.makeText(activity, "O aplicativo precisa de permissão para acessar sua câmera", Toast.LENGTH_LONG).show();
+                    permissions();
+            }else {
 
-                startActivityForResult(i, SELECT_CAMERA);
+                var i: Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (i.resolveActivity(activity?.packageManager) != null) {
 
+                    startActivityForResult(i, SELECT_CAMERA);
+
+                }
             }
 
         }
 
         viewOfLayout.buttonOpenGallery.setOnClickListener {
 
-            var i: Intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            if( i.resolveActivity( activity?.packageManager ) != null ){
+            if(ContextCompat.checkSelfPermission(activity!!, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(activity, "O aplicativo precisa de permissão para acessar sua galeria de fotos", Toast.LENGTH_LONG).show();
+                permissions();
+            }else {
 
-                startActivityForResult(i, SELECT_GALLERY);
+                var i: Intent =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                if (i.resolveActivity(activity?.packageManager) != null) {
 
+                    startActivityForResult(i, SELECT_GALLERY);
+
+                }
             }
 
         }
@@ -281,6 +292,10 @@ class AddCardapioFragment : Fragment() {
 
         }
 
+    }
+
+    private fun permissions(){
+        Permission.validPermissions(permissions, activity!!, 1);
     }
 
     override fun onDestroy() {
