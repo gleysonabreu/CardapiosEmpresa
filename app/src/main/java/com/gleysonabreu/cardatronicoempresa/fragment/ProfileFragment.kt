@@ -40,6 +40,7 @@ import kotlinx.android.synthetic.main.fragment_add_cardapio.view.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import java.io.ByteArrayOutputStream
+import java.io.OutputStream
 import java.lang.Exception
 
 /**
@@ -64,7 +65,6 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
 
         viewOf = inflater.inflate(R.layout.fragment_profile, container, false);
-
 
         // Dialog loading
         builder = activity?.let { AlertDialog.Builder(it) }!!;
@@ -193,7 +193,7 @@ class ProfileFragment : Fragment() {
                 }
 
                 var baos: ByteArrayOutputStream = ByteArrayOutputStream();
-                bitmap?.compress(Bitmap.CompressFormat.JPEG, 70, baos);
+                bitmap?.compress(Bitmap.CompressFormat.JPEG, 70, baos as OutputStream?);
                 var dadosImage: ByteArray? = baos.toByteArray();
 
                 val storageReference = SettingsFirebase.getStorage();

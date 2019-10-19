@@ -71,9 +71,6 @@ class AddCardapioFragment : Fragment() {
         builder.setView(R.layout.dialog_loading);
         builder.setCancelable(false);
 
-        // Valid permissions
-        permissions();
-
         //Open Add Category
         viewOfLayout.buttonOpenCategory.setOnClickListener {
             var i: Intent = Intent(activity, CategoryActivity::class.java);

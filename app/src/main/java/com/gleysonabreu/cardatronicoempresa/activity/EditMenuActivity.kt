@@ -57,8 +57,6 @@ class EditMenuActivity : AppCompatActivity() {
         setSupportActionBar(toolbar);
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
 
-        // Permissions
-        permissions();
 
         bundle = intent.getSerializableExtra("dadosEditar") as Cardapio;
         builder = AlertDialog.Builder(this);
