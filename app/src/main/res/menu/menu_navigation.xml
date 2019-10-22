@@ -18,10 +18,5 @@
         android:title="@string/navigationPerson"
         android:icon="@drawable/ic_person_black"
         />
-    <item
-        android:id="@+id/settings"
-        android:title="@string/navigationSettings"
-        android:icon="@drawable/ic_settings_black"
-        />
 
 </menu>

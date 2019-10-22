@@ -4,6 +4,7 @@ package com.gleysonabreu.cardatronicoempresa.fragment
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,6 @@ class HomeFragment : Fragment() {
     private lateinit var firebaseRef: DatabaseReference;
     private lateinit var childEvent: ChildEventListener;
     private lateinit var cardapioRef: DatabaseReference;
-    private lateinit var  linearLayoutManager: LinearLayoutManager;
     private lateinit var  viewOfLayout: View;
     private var keyList: ArrayList<String> = ArrayList<String>();
 
@@ -43,15 +43,13 @@ class HomeFragment : Fragment() {
 
         viewOfLayout = inflater!!.inflate(R.layout.fragment_home, container, false);
 
-        linearLayoutManager = LinearLayoutManager(activity);
-
         //Settings Firebase
         firebaseRef = SettingsFirebase.getFirebase();
         cardapioRef = firebaseRef.child("cardapio");
 
         // Settings Adapter
         viewOfLayout.recyclerMenuItems.adapter = AdapterCardapio(listMenu, activity!!)
-        viewOfLayout.recyclerMenuItems.layoutManager = linearLayoutManager;
+        viewOfLayout.recyclerMenuItems.layoutManager = LinearLayoutManager(activity);
 
 
         // Inflate the layout for this fragment
@@ -66,7 +64,17 @@ class HomeFragment : Fragment() {
         super.onStart()
         listMenu.clear();
         keyList.clear();
+        cardapio();
 
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cardapioRef.removeEventListener(childEvent);
+    }
+
+    private fun cardapio(){
         childEvent = cardapioRef.addChildEventListener(object: ChildEventListener{
             override fun onCancelled(p0: DatabaseError) {
             }
@@ -81,8 +89,8 @@ class HomeFragment : Fragment() {
 
                 if (cardapioChanged != null) {
                     listMenu.set(index, cardapioChanged);
-                    viewOfLayout.recyclerMenuItems.adapter?.notifyDataSetChanged();
                 };
+                viewOfLayout.recyclerMenuItems.adapter?.notifyDataSetChanged();
 
             }
 
@@ -92,9 +100,9 @@ class HomeFragment : Fragment() {
                 if (newItemmenu != null) {
                     listMenu.add(newItemmenu)
                     p0.key?.let { keyList.add(it) };
-                };
-
+                }
                 viewOfLayout.recyclerMenuItems.adapter?.notifyDataSetChanged();
+
 
 
             }
@@ -108,12 +116,6 @@ class HomeFragment : Fragment() {
             }
 
         });
-
-    }
-
-    override fun onStop() {
-        super.onStop()
-        cardapioRef.removeEventListener(childEvent);
     }
 
 }

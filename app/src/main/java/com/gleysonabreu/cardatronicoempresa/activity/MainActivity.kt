@@ -12,7 +12,6 @@ import com.gleysonabreu.cardatronicoempresa.R
 import com.gleysonabreu.cardatronicoempresa.fragment.AddCardapioFragment
 import com.gleysonabreu.cardatronicoempresa.fragment.HomeFragment
 import com.gleysonabreu.cardatronicoempresa.fragment.ProfileFragment
-import com.gleysonabreu.cardatronicoempresa.fragment.SettingsFragment
 import com.gleysonabreu.cardatronicoempresa.helper.SettingsFirebase
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,26 +29,25 @@ class MainActivity : AppCompatActivity() {
             //FirstFragment Open
             var homeFragment = HomeFragment().newInstance();
             openFragment(homeFragment);
+            fundoActivity.setBackgroundResource(R.color.bgHome);
         bottomNavigationView.setOnNavigationItemSelectedListener {
             item: MenuItem -> when(item.itemId){
                 R.id.addCardapio -> {
                     toolbar.setTitle(R.string.addCardapio);
                     var addCardapioFragment = AddCardapioFragment().newInstance();
                     openFragment(addCardapioFragment);
-                }
-                R.id.settings -> {
-                    toolbar.setTitle(R.string.navigationSettings);
-                    var settingsFragment = SettingsFragment().newInstance();
-                    openFragment(settingsFragment);
+                    fundoActivity.setBackgroundResource(R.color.cWhite);
                 }
                 R.id.profile -> {
                     toolbar.setTitle(R.string.navigationPerson);
                     var profileFragment = ProfileFragment().newInstance();
                     openFragment(profileFragment);
+                    fundoActivity.setBackgroundResource(R.color.cWhite);
                 }
                 R.id.homeFragment -> {
                     toolbar.setTitle(R.string.controlPanel);
                     openFragment(homeFragment);
+                    fundoActivity.setBackgroundResource(R.color.bgHome);
                 }
             }
 

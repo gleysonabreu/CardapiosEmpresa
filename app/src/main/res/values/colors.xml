@@ -2,8 +2,12 @@
 <resources>
     <color name="colorPrimary">#0199FF</color>
     <color name="colorPrimaryDark">#ffffff</color>
-    <color name="colorAccent">@color/colorSplash</color>
-    <color name="colorSplash">#9146ff</color>
+    <color name="colorAccent">@color/colorDesignNew</color>
+    <color name="colorSplash">@color/colorDesignNew</color>
     <string name="colorWhite">#ffffff</string>
     <string name="colorDarkDialog">#C6000000</string>
+    <color name="colorDesignNew">#0195FF</color>
+    <color name="cWhite">@android:color/white</color>
+    <color name="bgHome">#f7f7f7</color>
+    <color name="textColor">#262628</color>
 </resources>
