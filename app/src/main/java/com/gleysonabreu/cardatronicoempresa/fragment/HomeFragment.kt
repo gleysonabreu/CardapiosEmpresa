@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
 
     private var listMenu: ArrayList<Cardapio> = ArrayList<Cardapio>();
     private lateinit var firebaseRef: DatabaseReference;
-    private lateinit var childEvent: ChildEventListener;
+    private var childEvent: ChildEventListener? = null;
     private lateinit var cardapioRef: DatabaseReference;
     private lateinit var  viewOfLayout: View;
     private var keyList: ArrayList<String> = ArrayList<String>();
@@ -71,7 +71,7 @@ class HomeFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        cardapioRef.removeEventListener(childEvent);
+        childEvent?.let { cardapioRef.removeEventListener(it) };
     }
 
     private fun cardapio(){

@@ -6,7 +6,7 @@
     <color name="colorSplash">@color/colorDesignNew</color>
     <string name="colorWhite">#ffffff</string>
     <string name="colorDarkDialog">#C6000000</string>
-    <color name="colorDesignNew">#0195FF</color>
+    <color name="colorDesignNew">#FFD55A</color>
     <color name="cWhite">@android:color/white</color>
     <color name="bgHome">#f7f7f7</color>
     <color name="textColor">#262628</color>

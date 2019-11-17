@@ -26,42 +26,54 @@ class SingupActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
 
         buttonSignup.setOnClickListener {
-            var email: String = editTextEmailSignup.text.toString();
-            var password: String = editTextPasswordSignup.text.toString();
-            var empresaNome: String = editTextNomeEmpresa.text.toString();
-            var cep: String = editTextCep.text.toString();
-            var estado: String = editTextEstado.text.toString();
-            var cidade: String = editTextCidade.text.toString();
-            var bairro: String = editTextBairro.text.toString();
-            var complemento: String = editTextComplemento.text.toString();
-            var tipoCozinha: String = editTextTipoCozinha.text.toString();
-            var telefone: String = editTextTelefoneEmpresa.text.toString();
 
-            if( !email.isEmpty() && !password.isEmpty() && !empresaNome.isEmpty() && !cep.isEmpty() && !estado.isEmpty() && !cidade.isEmpty()
-                && !bairro.isEmpty() && !complemento.isEmpty() && !tipoCozinha.isEmpty() && !telefone.isEmpty()){
+            if (CADASTRAR) {
 
-                var empresa = Empresa();
-                empresa.email = email;
-                empresa.password = password;
-                empresa.nomeEmpresa = empresaNome;
-                empresa.cep = cep;
-                empresa.estado = estado;
-                empresa.cidade = cidade;
-                empresa.bairro = cidade;
-                empresa.complemento = complemento;
-                empresa.tipoCozinha = tipoCozinha;
-                empresa.telefone = telefone;
+                var email: String = editTextEmailSignup.text.toString();
+                var password: String = editTextPasswordSignup.text.toString();
+                var empresaNome: String = editTextNomeEmpresa.text.toString();
+                var cep: String = editTextCep.text.toString();
+                var estado: String = editTextEstado.text.toString();
+                var cidade: String = editTextCidade.text.toString();
+                var bairro: String = editTextBairro.text.toString();
+                var complemento: String = editTextComplemento.text.toString();
+                var tipoCozinha: String = editTextTipoCozinha.text.toString();
+                var telefone: String = editTextTelefoneEmpresa.text.toString();
 
-                signupUser(empresa);
+                if (!email.isEmpty() && !password.isEmpty() && !empresaNome.isEmpty() && !cep.isEmpty() && !estado.isEmpty() && !cidade.isEmpty()
+                    && !bairro.isEmpty() && !complemento.isEmpty() && !tipoCozinha.isEmpty() && !telefone.isEmpty()
+                ) {
+
+                    var empresa = Empresa();
+                    empresa.email = email;
+                    empresa.password = password;
+                    empresa.nomeEmpresa = empresaNome;
+                    empresa.cep = cep;
+                    empresa.estado = estado;
+                    empresa.cidade = cidade;
+                    empresa.bairro = cidade;
+                    empresa.complemento = complemento;
+                    empresa.tipoCozinha = tipoCozinha;
+                    empresa.telefone = telefone;
+
+                    signupUser(empresa);
 
 
-
+                } else {
+                    Toast.makeText(
+                        this,
+                        R.string.messageSignupNeddData,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }else{
+
                 Toast.makeText(
                     this,
-                    R.string.messageSignupNeddData,
-                    Toast.LENGTH_LONG
+                    R.string.failedSignup,
+                    Toast.LENGTH_SHORT
                 ).show()
+
             }
         }
 
@@ -113,6 +125,12 @@ class SingupActivity : AppCompatActivity() {
 
             }
         }
+
+    }
+
+    companion object{
+
+        private const val CADASTRAR = false;
 
     }
 }
