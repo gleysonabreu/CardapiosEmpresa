@@ -9,7 +9,7 @@ import com.google.firebase.storage.FirebaseStorage
 
 class SettingsFirebase {
 
-    companion object Factory{
+    companion object{
 
         private var referenceFirebase: DatabaseReference? = null;
         private var referenceAuth: FirebaseAuth? = null;
@@ -47,6 +47,7 @@ class SettingsFirebase {
             }
             return referenceStorage as StorageReference;
         }
+
 
     }
 

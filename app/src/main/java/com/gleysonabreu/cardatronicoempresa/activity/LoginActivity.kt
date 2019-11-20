@@ -29,6 +29,10 @@ class LoginActivity : AppCompatActivity() {
         buttonSignup.setOnClickListener {
             openSignup();
         }
+        textForgotPass.setOnClickListener{
+            var intent = Intent(this, ForgotPasswordActivity::class.java);
+            startActivity(intent);
+        }
 
         buttonLogin.setOnClickListener {
 
